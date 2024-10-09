@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function LeapYear() {
+const year = document.getElementById("year").value;
+let result = "";
+if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+result = year + ' is a leap year';
+ } else {
+     result = year + ' is not a leap year';
+        }
+ document.getElementById("result1").textContent = result;
+        }
+        function findSundays() {
+            let result = '';
+            for (let year = 2014; year <= 2050; year++) {
+                let date = new Date(year, 0, 1); 
+                if (date.getDay() === 0) { 
+                    result += `1st January is a Sunday in the year ${year}<br>`;
+                }
+            }
+            document.getElementById('output').innerHTML = result;
+        }
+
+        function checkOddEven() {
+            let result = "";
+            for (let i = 0; i <= 15; i++) {
+                if (i % 2 === 0) {
+                    result += `${i} is even<br>`;
+                } else {
+                    result += `${i} is odd<br>`;
+                }
+            }
+            document.getElementById('oddEvenResult').innerHTML = result;
+        }
+        function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}
+
+function checkPalindrome() {
+  var inputString = document.getElementById("inputString").value;
+  var resultElement = document.getElementById("result");
+  
+  if (isPalindrome(inputString)) {
+    resultElement.textContent = inputString + " is a palindrome.";
+  } else {
+    resultElement.textContent = inputString + " is not a palindrome.";
+  }
+}
+
+
+    </script>
+</head>
+<body>
+     <h1>Check Leap Year</h1>
+    <p>Enter the year:</p>
+    <label for="year">Year:</label>
+    <input type="number" id="year" required>
+    <button onclick="LeapYear()">Check</button>
+    <p id="result1"></p> 
+    <br><br><hr>
+
+    <h1>Find if 1st January is a Sunday between 2014 and 2050</h1>
+    <button onclick="findSundays()">Check Sundays</button>
+    <p id="output"></p> 
+    <br><br><hr>
+    <h1>Odd or Even Numbers from 0 to 15</h1>
+    <button onclick="checkOddEven()">Check Odd or Even</button>
+    <p id="oddEvenResult"></p> 
+    <br><br><hr>
+    <h1>Palindrome Checker</h1>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="result"></p>
+
+</body>
+</html>
